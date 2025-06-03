@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class QuestionOne {
 
-    private static final String PAST_HOUR = " past ";
-    private static final String BEFORE_HOUR = " to ";
+    private static final String PAST_HOUR = "past";
+    private static final String BEFORE_HOUR = "to";
     private static final String HOUR_MARK = " o’clock";
 
     public static void main(String[] args) {
@@ -18,14 +18,14 @@ public class QuestionOne {
     }
 
     private static final String[] NUMBERS_IN_WORDS = {
-            "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-            "eleven", "twelve", "thirteen", "fourteen", "quarter", "sixteen", "seventeen",
-            "eighteen", "nineteen", "twenty", "twenty one", "twenty two", "twenty three",
-            "twenty four", "twenty five", "twenty six", "twenty seven", "twenty eight",
-            "twenty nine", "half"
+        "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+        "eleven", "twelve", "thirteen", "fourteen", "quarter", "sixteen", "seventeen",
+        "eighteen", "nineteen", "twenty", "twenty one", "twenty two", "twenty three",
+        "twenty four", "twenty five", "twenty six", "twenty seven", "twenty eight",
+        "twenty nine", "half"
     };
 
-    private static String convertTimeToWords(int hour, int minute) {
+    public static String convertTimeToWords(int hour, int minute) {
         try {
             if (hour < 1 || hour > 12 || minute < 0 || minute >= 60) {
                 return "Invalid input";
@@ -37,7 +37,7 @@ public class QuestionOne {
                 if (minute == 15 || minute == 30) {
                     return String.format("%s %s %s", NUMBERS_IN_WORDS[minute], PAST_HOUR, NUMBERS_IN_WORDS[hour]);
                 }
-                String minuteInText = minute == 1 ? " minute" : " minutes";
+                String minuteInText = minute == 1 ? "minute" : "minutes";
                 return String.format("%s %s %s %s", NUMBERS_IN_WORDS[minute], minuteInText,  PAST_HOUR, NUMBERS_IN_WORDS[hour]);
             } else {
                 int remainingMinutes = 60 - minute;
@@ -45,7 +45,7 @@ public class QuestionOne {
                 if (remainingMinutes == 15) {
                     return String.format("%s %s %s", NUMBERS_IN_WORDS[remainingMinutes], BEFORE_HOUR, NUMBERS_IN_WORDS[nextHour]);
                 }
-                String minuteText = remainingMinutes == 1 ? " minute" : " minutes";
+                String minuteText = remainingMinutes == 1 ? "minute" : "minutes";
                 return String.format("%s %s %s %s", NUMBERS_IN_WORDS[remainingMinutes], minuteText,  BEFORE_HOUR, NUMBERS_IN_WORDS[nextHour]);
             }
         } catch (RuntimeException e) {
