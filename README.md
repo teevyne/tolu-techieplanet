@@ -17,8 +17,10 @@ and then the `scoreservice` would depend on the student service to provides its 
 The first major design decision was around modelling. Since I was not working with relationships on a large scale, I decided to keep my schemas simple by using a Map to save the subjects in the database as against composing my StudentScore entity with another entity.
 It achieved the same result and so, because I did not have a lot of data I was dealing with but in real-life, I believe I would favour composition and relationship mapping over persisting a Map.
 
-Furthermore, I separate domains for ease of access. I worked with a transformer, which has the service injected into it. This service is exposed to the controller and is the class in which all forms of first-level validations will always be carried out before even getting into the service.
-The implementations in the service layer (which ideally will interact with other services across the system) will be made available to other service, which will in turn have their own transformers.
+Furthermore, I separate domains for ease of access. I worked with a transformer, which has the service injected into it. This transformer service is exposed to the controller and is the class in which all forms of first-level validations will always be carried out before even getting into the regular service layer.
+The implementations in the service layer (which ideally will interact with other services across the system) will be made available to other service, which will in turn have their own transformers. 
+
+In addition, I converted all requests into models for the system to work with in-case anything comes up with Hibernate sessions and the request is truncated mid-processing.
 
 The other parts of the assessment were duly and well-answered. The documentation on how to start and test them is provided below.
 
