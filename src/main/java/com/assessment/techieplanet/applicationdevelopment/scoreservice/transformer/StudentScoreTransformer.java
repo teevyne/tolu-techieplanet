@@ -52,8 +52,7 @@ public class StudentScoreTransformer {
             .map(StudentScore::toStudentScoreEntity)
             .toList();
 
-        List<UUID> uuids = service.addScores(scoreList);
-        return uuids;
+        return service.addScores(scoreList);
     }
 
     private void validateScore(List<StudentScoreRequest> requests) {
@@ -61,7 +60,7 @@ public class StudentScoreTransformer {
             req.getScores().forEach((subject, score) -> {
                 if (score == null || score < 0 || score > 100) {
                     throw new IllegalArgumentException(String.format(
-                        "Invalid score '%s' for subject '%s' in student '%s'. Score must be between 0 and 100.",
+                        "Invalid score '%s' in subject '%s' for student '%s'. Score must be between 0 and 100.",
                         score, subject, req.getStudentName()
                     ));
                 }

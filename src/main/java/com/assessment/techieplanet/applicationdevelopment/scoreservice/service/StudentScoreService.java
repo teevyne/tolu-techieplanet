@@ -3,7 +3,6 @@ package com.assessment.techieplanet.applicationdevelopment.scoreservice.service;
 import com.assessment.techieplanet.applicationdevelopment.scoreservice.entity.StudentScore;
 import com.assessment.techieplanet.applicationdevelopment.scoreservice.utility.dto.FilterDto;
 import com.assessment.techieplanet.applicationdevelopment.scoreservice.utility.dto.StudentScoreReportDto;
-import com.assessment.techieplanet.applicationdevelopment.scoreservice.utility.response.CustomResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
