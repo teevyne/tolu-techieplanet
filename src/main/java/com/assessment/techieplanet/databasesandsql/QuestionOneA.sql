@@ -1,0 +1,28 @@
+--1=========================================================================
+SELECT MAX(salary)
+FROM emp
+WHERE salary < (SELECT MAX(salary) FROM emp);
+
+--2=========================================================================
+SELECT DISTINCT(salary)
+FROM emp
+ORDER BY salary DESC
+LIMIT 1 OFFSET 1;
+
+--3=========================================================================
+SELECT salary
+FROM (
+    SELECT DISTINCT salary
+    FROM emp
+    ORDER BY salary DESC
+    LIMIT 2)
+AS emp ORDER BY salary LIMIT 1;
+
+--4=========================================================================
+SELECT DISTINCT salary
+FROM (
+    SELECT salary
+    FROM emp
+    ORDER BY salary DESC
+    LIMIT 2)
+AS emp ORDER BY salary LIMIT 1;
